@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Package, Clock, Truck, CheckCircle2, PackagePlus } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";

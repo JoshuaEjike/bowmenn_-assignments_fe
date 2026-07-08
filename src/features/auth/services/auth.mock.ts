@@ -53,7 +53,7 @@ function issueTokens(user: AuthUser): AuthResponse {
 export const authMockService = {
   async login(payload: LoginPayload): Promise<AuthResponse> {
     await mockDelay();
-    const user = mockUsers.find((u) => u.email.toLowerCase() === payload.email.toLowerCase());
+    const user = mockUsers.find((u) => u.email.toLowerCase() === payload?.email?.toLowerCase());
     if (!user || payload.password !== MOCK_PASSWORD) {
       throw { message: "Incorrect email or password.", code: "INVALID_CREDENTIALS", status: 401 };
     }
@@ -62,7 +62,7 @@ export const authMockService = {
 
   async register(payload: RegisterPayload): Promise<AuthResponse> {
     await mockDelay();
-    if (mockUsers.some((u) => u.email.toLowerCase() === payload.email.toLowerCase())) {
+    if (mockUsers.some((u) => u.email.toLowerCase() === payload?.email?.toLowerCase())) {
       throw {
         message: "An account with this email already exists.",
         code: "EMAIL_TAKEN",
@@ -72,11 +72,11 @@ export const authMockService = {
     }
     const user: AuthUser = {
       id: nextId("user"),
-      firstName: payload.firstName,
-      lastName: payload.lastName,
-      email: payload.email,
-      phone: payload.phone,
-      role: payload.role,
+      firstName: payload?.firstName ?? "",
+      lastName: payload?.lastName ?? "",
+      email: payload.email ?? "",
+      phone: payload.phone ?? "",
+      role: payload?.role ?? "customer",
       createdAt: new Date().toISOString(),
     };
     mockUsers.push(user);
@@ -85,7 +85,7 @@ export const authMockService = {
 
   async forgotPassword(payload: ForgotPasswordPayload): Promise<{ message: string }> {
     await mockDelay();
-    const exists = mockUsers.some((u) => u.email.toLowerCase() === payload.email.toLowerCase());
+    const exists = mockUsers.some((u) => u.email.toLowerCase() === payload?.email?.toLowerCase());
     if (!exists) {
       throw { message: "No account found with this email.", code: "NOT_FOUND", status: 404 };
     }
@@ -124,9 +124,9 @@ export const authMockService = {
     if (!user) {
       throw { message: "User not found.", code: "NOT_FOUND", status: 404 };
     }
-    user.firstName = payload.firstName;
-    user.lastName = payload.lastName;
-    user.phone = payload.phone;
+    user.firstName = payload?.firstName ?? "";
+    user.lastName = payload.lastName ?? "";
+    user.phone = payload.phone ?? "";
     if (payload.avatarUrl) user.avatarUrl = payload.avatarUrl;
     return user;
   },

@@ -162,11 +162,11 @@ export const shipmentMockService = {
       id: nextId("shp"),
       reference: `BWM-${Math.floor(10000 + Math.random() * 9000)}`,
       status: "pending",
-      cargoDescription: payload.cargoDescription,
-      cargoWeightKg: payload.cargoWeightKg,
-      truckType: payload.truckType,
-      pickup: payload.pickup,
-      delivery: payload.delivery,
+      cargoDescription: payload.cargoDescription ?? "",
+      cargoWeightKg: payload.cargoWeightKg ?? 0,
+      truckType: payload.truckType ?? "box_truck",
+      pickup: payload.pickup ?? {},
+      delivery: payload.delivery ?? {},
       customer: {
         id: "user_customer_1",
         fullName: "Ifeoma Chukwu",
@@ -176,10 +176,10 @@ export const shipmentMockService = {
       timeline: [
         { id: "evt_0", status: "pending", timestamp: new Date().toISOString(), actorName: "System" },
       ],
-      requestedPickupDate: payload.requestedPickupDate,
+      requestedPickupDate: payload.requestedPickupDate ?? "",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      priceEstimate: Math.round(payload.cargoWeightKg * 45 + 20000),
+      priceEstimate: Math.round(payload.cargoWeightKg ?? 0 * 45 + 20000),
       distanceKm: 620,
     };
     mockShipments.unshift(shipment);

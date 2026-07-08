@@ -73,7 +73,9 @@ const customers: AdminCustomerProfile[] = [
 export const adminMockService = {
   async listDrivers(filters: AdminListFilters) {
     await mockDelay();
-    const filtered = drivers.filter((d) => matchesSearch([d.fullName, d.email, d.vehiclePlate], filters.search));
+    const filtered = drivers.filter((d) =>
+      matchesSearch([d.fullName, d.email, d?.vehiclePlate ?? ""], filters.search),
+    );
     return paginate(filtered, filters);
   },
 
@@ -86,7 +88,9 @@ export const adminMockService = {
 
   async listCustomers(filters: AdminListFilters) {
     await mockDelay();
-    const filtered = customers.filter((c) => matchesSearch([c.fullName, c.email, c.companyName ?? ""], filters.search));
+    const filtered = customers.filter((c) =>
+      matchesSearch([c.fullName, c.email, c.companyName ?? ""], filters.search),
+    );
     return paginate(filtered, filters);
   },
 
