@@ -51,16 +51,16 @@ export const SHIPMENT_STATUSES = [
 export type ShipmentStatus = (typeof SHIPMENT_STATUSES)[number];
 
 export interface GeoAddress {
-  label: string;
-  line1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  country: string;
+  label?: string;
+  line1?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  country?: string;
   lat?: number;
   lng?: number;
-  contactName: string;
-  contactPhone: string;
+  contactName?: string;
+  contactPhone?: string;
 }
 
 export interface ShipmentTimelineEvent {

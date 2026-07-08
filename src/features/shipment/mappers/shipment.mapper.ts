@@ -21,7 +21,14 @@ export interface RawShipment {
   pickup: GeoAddress;
   delivery: GeoAddress;
   customer: { id: string; fullName?: string; email?: string; phone?: string; companyName?: string };
-  driver?: { id: string; fullName?: string; phone?: string; vehiclePlate?: string; truckType?: string };
+  driver?: {
+    id: string;
+    fullName?: string;
+    phone?: string;
+    vehiclePlate?: string;
+    truckType?: string;
+    rating?: number;
+  };
   timeline: Array<{ status: ShipmentStatus; note?: string; actorName?: string; timestamp: string }>;
   proofOfDelivery?: { imageUrl: string; receivedBy: string; signedAt: string; notes?: string };
   requestedPickupDate: string;
@@ -56,6 +63,7 @@ function toDriverSummary(driver: RawShipment["driver"]): DriverSummary | undefin
     fullName: driver.fullName ?? "Unknown driver",
     phone: driver.phone ?? "",
     vehiclePlate: driver.vehiclePlate,
+    rating: driver.rating,
     truckType: driver.truckType as TruckType | undefined,
   };
 }

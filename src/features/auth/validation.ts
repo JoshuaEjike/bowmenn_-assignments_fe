@@ -53,9 +53,14 @@ export const resetPasswordSchema = z
 export type ResetPasswordFormValues = z.infer<typeof resetPasswordSchema>;
 
 export const updateProfileSchema = z.object({
-  truckType: z.union([z.enum(TRUCK_TYPES), z.literal("")]).optional(),
-  vehiclePlate: z.string().optional(),
-  companyName: z.string().optional(),
+  // truckType: z.union([z.enum(TRUCK_TYPES), z.literal("")]).optional(),
+  // vehiclePlate: z.string().optional(),
+  // companyName: z.string().optional(),
+  truckType: z.preprocess((value) => (value === "" ? undefined : value), z.enum(TRUCK_TYPES).optional()),
+
+  vehiclePlate: z.preprocess((value) => (value === "" ? undefined : value), z.string().optional()),
+
+  companyName: z.preprocess((value) => (value === "" ? undefined : value), z.string().optional()),
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   phone: z.string().min(7, "Enter a valid phone number"),

@@ -9,12 +9,12 @@ export interface ShipmentListFilters {
 }
 
 export interface CreateShipmentPayload {
-  cargoDescription: string;
-  cargoWeightKg: number;
-  truckType: TruckType;
-  pickup: GeoAddress;
-  delivery: GeoAddress;
-  requestedPickupDate: string;
+  cargoDescription?: string;
+  cargoWeightKg?: number;
+  truckType?: TruckType;
+  pickup?: GeoAddress;
+  delivery?: GeoAddress;
+  requestedPickupDate?: string;
 }
 
 export interface UpdateShipmentStatusPayload {

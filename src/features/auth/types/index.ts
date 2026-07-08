@@ -1,21 +1,21 @@
 import type { AuthUser, TruckType } from "@/app/types/domain";
 
 export interface LoginPayload {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 export interface RegisterPayload {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  password: string;
-  role: "customer" | "driver";
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  password?: string;
+  role?: "customer" | "driver";
 }
 
 export interface ForgotPasswordPayload {
-  email: string;
+  email?: string;
 }
 
 export interface VerifyOtpPayload {
@@ -48,9 +48,9 @@ export interface LoginResponse {
 }
 
 export interface UpdateProfilePayload {
-  firstName: string;
-  lastName: string;
-  phone: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
   avatarUrl?: string;
   truckType?: TruckType;
   vehiclePlate?: string;

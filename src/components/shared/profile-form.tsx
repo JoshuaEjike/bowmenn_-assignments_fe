@@ -39,9 +39,9 @@ export function ProfileForm({ extraDetails }: ProfileFormProps) {
   } = useForm<UpdateProfileFormValues>({
     resolver: zodResolver(updateProfileSchema),
     defaultValues: {
-      truckType: user?.truckType ?? "",
-      vehiclePlate: user?.vehiclePlate ?? "",
-      companyName: user?.companyName ?? "",
+      truckType: user?.truckType ?? undefined,
+      vehiclePlate: user?.vehiclePlate ?? undefined,
+      companyName: user?.companyName ?? undefined,
       firstName: user?.firstName ?? "",
       lastName: user?.lastName ?? "",
       phone: user?.phone ?? "",

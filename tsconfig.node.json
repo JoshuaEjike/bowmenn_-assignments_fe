@@ -9,7 +9,7 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "strict": false
+    "strict": true
   },
   "include": ["vite.config.ts"]
 }

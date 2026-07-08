@@ -1,7 +1,6 @@
 import { AuthUserRes } from "@/app/types/domain";
 import { httpClient } from "./axios";
 import type {
-  AuthResponse,
   AuthResponseData,
   ForgotPasswordPayload,
   LoginPayload,

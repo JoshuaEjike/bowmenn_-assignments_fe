@@ -11,18 +11,18 @@ interface ErrorBoundaryState {
 }
 
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  state: ErrorBoundaryState = { hasError: false };
+  override state: ErrorBoundaryState = { hasError: false };
 
   static getDerivedStateFromError(): ErrorBoundaryState {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo): void {
+  override componentDidCatch(error: Error, info: ErrorInfo): void {
     // Wire this to an error-tracking service (Sentry, etc.) in production.
     console.error("Uncaught error in subtree:", error, info.componentStack);
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       return (
         this.props.fallback ?? (
