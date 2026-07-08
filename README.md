@@ -4,13 +4,6 @@ Enterprise SaaS frontend for Bowmenn, a freight logistics platform. Customers bo
 shipments, admins dispatch drivers, and drivers move cargo from pickup to proof of
 delivery.
 
-## Demo accounts(Switch between mock or real services from env file)
-
-- admin@bowmenn.com
-- driver@bowmenn.com
-- customer@bowmenn.com
-- password => Password1
-
 ## Stack
 
 React 19 · Vite · TypeScript (strict) · React Router v7 · TanStack Query · Zustand ·
