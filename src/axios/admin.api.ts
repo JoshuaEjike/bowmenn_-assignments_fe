@@ -8,7 +8,9 @@ import {
 import type { AdminCustomerProfile, AdminDriverProfile, AdminListFilters } from "@/features/admin/types";
 import type { PaginatedResult } from "@/app/types/domain";
 
-type ArrayWithMeta<T> = T[] & { meta: { page: number; limit: number; total: number; totalPages: number } };
+type ArrayWithMeta<T> = { data: T[] } & {
+  meta: { page: number; limit: number; total: number; totalPages: number };
+};
 
 function toParams(filters: AdminListFilters): Record<string, string | number> {
   const params: Record<string, string | number> = { page: filters.page, limit: filters.pageSize };

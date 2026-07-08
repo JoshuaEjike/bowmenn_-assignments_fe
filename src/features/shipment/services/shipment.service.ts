@@ -16,13 +16,15 @@ import type {
  * `features/auth/services/auth.service.ts`.
  */
 export const shipmentService = {
-  list: (filters: ShipmentListFilters) => (env.useMockApi ? shipmentMockService.list(filters) : shipmentApi.list(filters)),
+  list: (filters: ShipmentListFilters) =>
+    env.useMockApi ? shipmentMockService.list(filters) : shipmentApi.list(filters),
 
   detail: (id: string) => (env.useMockApi ? shipmentMockService.detail(id) : shipmentApi.detail(id)),
 
   stats: () => (env.useMockApi ? shipmentMockService.stats() : shipmentApi.stats()),
 
-  create: (payload: CreateShipmentPayload) => (env.useMockApi ? shipmentMockService.create(payload) : shipmentApi.create(payload)),
+  create: (payload: CreateShipmentPayload) =>
+    env.useMockApi ? shipmentMockService.create(payload) : shipmentApi.create(payload),
 
   updateStatus: (payload: UpdateShipmentStatusPayload) =>
     env.useMockApi ? shipmentMockService.updateStatus(payload) : shipmentApi.updateStatus(payload),
@@ -30,5 +32,6 @@ export const shipmentService = {
   assignDriver: (payload: AssignDriverPayload) =>
     env.useMockApi ? shipmentMockService.assignDriver(payload) : shipmentApi.assignDriver(payload),
 
-  uploadPod: (payload: UploadPodPayload) => (env.useMockApi ? shipmentMockService.uploadPod(payload) : shipmentApi.uploadPod(payload)),
+  uploadPod: (payload: UploadPodPayload) =>
+    env.useMockApi ? shipmentMockService.uploadPod(payload) : shipmentApi.uploadPod(payload),
 };

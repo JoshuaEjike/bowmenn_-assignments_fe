@@ -28,11 +28,9 @@ interface BackendShipmentStatsData {
   success: boolean;
 }
 
-// The interceptor (see axios/interceptors.ts) unwraps the backend's
-// `{ success, message, data, meta }` envelope, attaching `meta` onto `data`
-// via Object.assign when `data` is an array — so a list response arrives here
-// as `Shipment[] & { meta: PaginationMeta }`.
-type ArrayWithMeta<T> = T[] & { meta: { page: number; limit: number; total: number; totalPages: number } };
+type ArrayWithMeta<T> = { data: T[] } & {
+  meta: { page: number; limit: number; total: number; totalPages: number };
+};
 
 export const shipmentApi = {
   create: (payload: CreateShipmentPayload) =>

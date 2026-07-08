@@ -57,7 +57,7 @@ httpClient.interceptors.response.use(
         refreshPromise = null;
         originalRequest.headers.set("Authorization", `Bearer ${accessToken}`);
         return httpClient(originalRequest);
-      } catch (err) {
+      } catch {
         refreshPromise = null;
         useAuthStore.getState().clearSession();
 
