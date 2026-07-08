@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Bowmenn design tokens.
+  Signature palette: "freight navy" (primary) + "route amber" (accent) —
+  navy reads as the fixed infrastructure (terminals, contracts, ledgers),
+  amber reads as the thing in motion (the shipment itself).
+*/
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 216 45% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 45% 12%;
+
+    --surface: 0 0% 100%;
+    --surface-raised: 210 25% 99%;
+
+    --primary: 216 45% 16%;
+    --primary-foreground: 210 20% 98%;
+
+    --accent: 37 100% 56%;
+    --accent-foreground: 216 45% 12%;
+
+    --success: 152 55% 32%;
+    --success-foreground: 152 55% 96%;
+
+    --warning: 37 92% 45%;
+    --warning-foreground: 37 92% 97%;
+
+    --danger: 358 68% 46%;
+    --danger-foreground: 358 68% 97%;
+
+    --muted: 210 16% 94%;
+    --muted-foreground: 216 15% 42%;
+
+    --border: 214 18% 89%;
+    --input: 214 18% 89%;
+    --ring: 216 45% 30%;
+
+    --radius: 10px;
+  }
+
+  .dark {
+    --background: 218 32% 8%;
+    --foreground: 210 20% 96%;
+
+    --card: 218 28% 11%;
+    --card-foreground: 210 20% 96%;
+
+    --surface: 218 28% 11%;
+    --surface-raised: 218 26% 14%;
+
+    --primary: 210 60% 88%;
+    --primary-foreground: 216 45% 14%;
+
+    --accent: 37 100% 58%;
+    --accent-foreground: 216 45% 10%;
+
+    --success: 152 45% 46%;
+    --success-foreground: 152 45% 10%;
+
+    --warning: 37 85% 55%;
+    --warning-foreground: 37 85% 10%;
+
+    --danger: 358 62% 58%;
+    --danger-foreground: 358 62% 10%;
+
+    --muted: 218 20% 16%;
+    --muted-foreground: 216 12% 65%;
+
+    --border: 218 18% 20%;
+    --input: 218 18% 20%;
+    --ring: 210 60% 70%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  code,
+  kbd {
+    @apply font-mono tabular-nums;
+  }
+
+  ::selection {
+    @apply bg-accent-200 text-primary-900;
+  }
+
+  /* Visible keyboard focus everywhere, no exceptions */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+}
