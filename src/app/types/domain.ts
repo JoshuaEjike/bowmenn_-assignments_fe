@@ -83,9 +83,9 @@ export interface DriverSummary {
   id: string;
   fullName: string;
   phone: string;
-  vehiclePlate: string;
-  truckType: TruckType;
-  rating: number;
+  vehiclePlate?: string;
+  truckType?: TruckType;
+  rating?: number;
   avatarUrl?: string;
 }
 

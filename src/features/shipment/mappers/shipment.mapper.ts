@@ -62,7 +62,7 @@ function toDriverSummary(driver: RawShipment["driver"]): DriverSummary | undefin
     id: driver.id,
     fullName: driver.fullName ?? "Unknown driver",
     phone: driver.phone ?? "",
-    vehiclePlate: driver.vehiclePlate,
+    vehiclePlate: driver?.vehiclePlate,
     rating: driver.rating,
     truckType: driver.truckType as TruckType | undefined,
   };
