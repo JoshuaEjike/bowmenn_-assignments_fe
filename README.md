@@ -4,7 +4,7 @@ Enterprise SaaS frontend for Bowmenn, a freight logistics platform. Customers bo
 shipments, admins dispatch drivers, and drivers move cargo from pickup to proof of
 delivery.
 
-## Stack
+## Stack.
 
 React 19 · Vite · TypeScript (strict) · React Router v7 · TanStack Query · Zustand ·
 React Hook Form + Zod · Axios · Tailwind CSS · Radix primitives · Lucide icons ·
